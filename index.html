@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Blocked</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #0a0a0a, #3a4452);
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .notification-container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in-out, pulse 2s infinite;
+        }
+
+        h1 {
+            color: #ff4d4d;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        p {
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        /* Animasi Fade In */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animasi Pulse */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(255, 77, 77, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(255, 77, 77, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(255, 77, 77, 0.5); }
+        }
+
+        /* Animasi Glow untuk Teks */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff4d4d, 0 0 30px #ff4d4d;
+            }
+            to {
+                text-shadow: 0 0 20px #ff1a1a, 0 0 30px #ff1a1a, 0 0 40px #ff1a1a;
+            }
+        }
+
+        /* Animasi Latar Belakang */
+        .background-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff4d4d, #1a1a1a, #4d4dff, #1a1a1a);
+            background-size: 400%;
+            z-index: 0;
+            animation: bgAnimation 15s ease infinite;
+        }
+
+        @keyframes bgAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Latar Belakang Animasi -->
+    <div class="background-animation"></div>
+
+    <!-- Efek Partikel -->
+    <div id="particles-js"></div>
+
+    <!-- Konten Notifikasi -->
+    <div class="notification-container">
+        <h1>!Access Has Been Blocked</h1>
+        <p>To get the key script, it's already inside the main script, so make sure you run that first. The script also has a built-in key system..</p>
+    </div>
+
+    <!-- Library Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Inisialisasi Particles.js
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ff4d4d" },
+                shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ff4d4d",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    repulse: { distance: 100, duration: 0.4 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
